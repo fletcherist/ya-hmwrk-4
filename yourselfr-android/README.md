@@ -15,7 +15,7 @@
 
 1. Есть плагин **Crosswalk** — для поддержки React-приложения на старых web-view.
 
-   <img src='https://pp.vk.me/c604418/v604418043/25dcf/TFM71YAuP4k.jpg' height='100'/>
+   <img src='https://pp.vk.me/c604418/v604418043/25dcf/TFM71YAuP4k.jpg' width='400'>
 
 2. Иконки и экран-заставка.
 
