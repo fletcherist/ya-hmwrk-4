@@ -1,9 +1,13 @@
-### Резюме
+# Резюме
 
 ​	Мобильное приложение для iOS и Android для сервиса анонимных мнений Йорселфер.
 
-1. [yoursel.fr][http://yoursel.fr] — сервис.
-2. *[https://github.com/fletcherist/Yourselfr][https://github.com/fletcherist/Yourselfr]* — опенсорс репозиторий, откуда ведётся разработка.
+1. *http://yoursel.fr* — сервис.
+2. *https://github.com/fletcherist/Yourselfr* — опенсорс репозиторий, откуда ведётся разработка.
+
+
+<img src='https://pp.vk.me/c604418/v604418043/25da7/5SxBhodCpGg.jpg'>
+
 
 
 
