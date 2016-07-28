@@ -1,69 +1,27 @@
-# Hello World PhoneGap Template [![bitHound Score][bithound-img]][bithound-url]
+### Резюме
 
-A PhoneGap Hello World template
+​	Мобильное приложение для iOS и Android для сервиса анонимных мнений Йорселфер.
 
-## Usage
-
-#### PhoneGap CLI
-
-The hello-world template is the default when you create a new application using the [phonegap-cli][phonegap-cli-url].
-
-    phonegap create my-app
-
-Create an app using this template specifically:
-
-    phonegap create my-app --template hello-world
-
-To see a list of other available PhoneGap templates:
-
-    phonegap template list
-
-## [config.xml][config-xml]
-
-#### android-minSdkVersion (Android only)
-
-Minimum SDK version supported on the target device. Maximum version is blank by default.
-
-This template sets the minimum to `14`.
-
-    <preference name="android-minSdkVersion" value="14" />
-
-#### &lt;access ...&gt; (All)
-
-This template defaults to wide open access.
-
-    <access origin="*" />
-
-It is strongly encouraged that you restrict access to external resources in your application before releasing to production.
-
-For more information on whitelist configuration, see the [Cordova Whitelist Guide][cordova-whitelist-guide] and the [Cordova Whitelist Plugin documentation][cordova-plugin-whitelist]
-
-## [www/index.html][index-html]
-
-#### Content Security Policy (CSP)
-
-The default CSP is similarly open:
-
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-
-Much like the access tag above, you are strongly encouraged to use a more restrictive CSP in production.
-
-A good starting point declaration might be:
-
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" />
-
-For more information on the Content Security Policy, see the [section on CSP in the Cordova Whitelist Plugin documentation][cordova-plugin-whitelist-csp].
-
-Another good resource for generating a good CSP declaration is [CSP is Awesome][csp-is-awesome]
+1. [yoursel.fr][http://yoursel.fr] — сервис.
+2. *[https://github.com/fletcherist/Yourselfr][https://github.com/fletcherist/Yourselfr]* — опенсорс репозиторий, откуда ведётся разработка.
 
 
-[phonegap-cli-url]: http://github.com/phonegap/phonegap-cli
-[cordova-app]: http://github.com/apache/cordova-app-hello-world
-[bithound-img]: https://www.bithound.io/github/phonegap/phonegap-app-hello-world/badges/score.svg
-[bithound-url]: https://www.bithound.io/github/phonegap/phonegap-app-hello-world
-[config-xml]: https://github.com/phonegap/phonegap-template-hello-world/blob/master/config.xml
-[index-html]: https://github.com/phonegap/phonegap-template-hello-world/blob/master/www/index.html
-[cordova-whitelist-guide]: https://cordova.apache.org/docs/en/dev/guide/appdev/whitelist/index.html
-[cordova-plugin-whitelist]: http://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist
-[cordova-plugin-whitelist-csp]: http://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist#content-security-policy
-[csp-is-awesome]: http://cspisawesome.com
+
+### Что есть
+
+1. Есть плагин **Crosswalk** — для поддержки React-приложения на старых web-view.
+2. Иконки и экран-заставка.
+3. **Material-ui** компоненты потихоньку начали имплементироваться заместо старых кнопочек и инпутов.
+
+
+
+### Семь кругов ада.
+
+1. **Android SDK** — очень труднонастраиваемый пакет разработки. Поначалу у меня возникло множество проблем с эмулированием Android-устройства, которое пришлось использовать для тестирования в связи в тем, что своего девайса у меня нет.
+
+2. **Phonegap** — реиспользование кода — это громко сказано, так как чтобы компилятор сделал свою работу, мне пришлось переписать добрую половину роутер-кода приложения, которое я разрабатываю. Всё дело в том, что нельзя просто так взять и раздеплоить SPA с браузерным роутингом: это оказалось нетривиальной для Phonegap задачей — оказывается, в билде он отдаёт только index.html, на котором обычный роутинг по */url* не поднять. На осознание этого факта у меня ушла бөльшая половина рабочего дня. *Решение есть замена браузерного роутинга на hash-routing, который я описываю ниже.* 
+
+3. **Hashing React-Router** (#/url?k=yamblz)
+
+   Пол дела написать две строчки и заменить роутер на хешевый: но тогда падают все зависимости, которые фетчат разную дату из url
+
